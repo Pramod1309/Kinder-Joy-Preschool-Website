@@ -40,4 +40,22 @@ The backend targets Cloudflare Workers with the managed `DB` D1 binding. Staff a
 
 The `frontend/` folder is an export of the current built site. Source changes take effect when rebuilt and deployed; they do not automatically update this exported preview folder.
 
+## Publish on GitHub Pages
+
+GitHub Pages can publish from the repository root or from a `docs/` folder. This project keeps the exported website in `frontend/`, so run this from the repository root before publishing:
+
+```sh
+node build-github-pages.mjs
+```
+
+Commit and push the generated `docs/` folder, then open the repository on GitHub and set **Settings → Pages → Build and deployment → Source** to **Deploy from a branch**, with branch `main` and folder `/docs`.
+
+For this repository, the site URL should be:
+
+```text
+https://pramod1309.github.io/Kinder-Joy-Preschool-Website/
+```
+
+The GitHub Pages version is a static frontend export. The enquiry-saving API and protected staff inbox need the Cloudflare Worker/database deployment described in `source/README.md`.
+
 Website: https://kinder-joy-preschool.neelsahu33.chatgpt.site
